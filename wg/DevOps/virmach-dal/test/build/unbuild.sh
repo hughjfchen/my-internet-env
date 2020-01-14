@@ -12,5 +12,5 @@ begin_banner "wg" "build unbuild"
 
 begin_banner "wg" "build unbuild - clean up the local docker image"
 sg docker -c "docker rmi -f $(docker images|grep -w wireguard|awk '{print $3}')"
-done_banenr "wg" "build unbuild - clean up the local docker image"
+done_banner "wg" "build unbuild - clean up the local docker image"
 done_banner "wg" "build unbuild"

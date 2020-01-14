@@ -10,7 +10,7 @@ init_with_root_or_sudo "$0"
 
 begin_banner "wg" "deploy unprepare"
 
-if [ -d /var/wg]; then
+if [ -d /var/wg ]; then
     info "/var/wg directory found, delete it..."
     sudo rm -fr /var/wg
 fi
