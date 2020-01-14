@@ -15,6 +15,8 @@ begin_banner "wg" "build prepare - clone the source tree into the src directory"
 git clone https://github.com/cmulk/wireguard-docker.git src
 cd src
 git checkout stretch
+# remove linux-header-cloud-amd64 in install-module to fix build DKMS failure
+sed -i.bak.for.install.module 's/linux-headers-cloud-amd64//g' install-module
 cd ..
 done_banner "wg" "build prepare - clone the source tree into the src directoty"
 
