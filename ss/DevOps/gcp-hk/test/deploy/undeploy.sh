@@ -10,6 +10,7 @@ init_with_root_or_sudo "$0"
 
 begin_banner "ss" "deploy undeploy"
 
-sg docker -c "docker-compose -f /var/ss/docker-compose-ss.yml down"
+sg docker -c "docker stop $(docker ps|grep ssserver-kcptun|awk '{print $1}')"
+sg docker -c "docker stop $(docker ps|grep ssserver-obfs|awk '{print $1}')"
 
 done_banner "ss" "deploy undeploy"
