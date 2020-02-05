@@ -23,10 +23,10 @@ if ! type docker >/dev/null 2>&1; then
                     docker_arm="amd64"
                 fi
                 if dpkg-query -l | grep docker.io ; then
-                    sudo apt-get purge -y docker.io
+                    sudo apt-get purge -y docker.io 
                 fi
                 if dpkg-query -l | grep docker-engine ; then
-                    sudo apt-get purge -y docker-engine
+                    sudo apt-get purge -y docker-engine 
                 fi
                 if dpkg-query -l | grep docker ; then
                     sudo apt-get purge -y docker
