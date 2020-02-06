@@ -9,6 +9,6 @@ fi
 
 init_with_root_or_sudo "$0"
 
-begin_banner "wg" "prepare"
+begin_banner "ss" "prepare"
 
-done_banner "wg" "prepare"
+done_banner "ss" "prepare"

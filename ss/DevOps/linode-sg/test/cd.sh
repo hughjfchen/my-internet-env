@@ -8,7 +8,7 @@ fi
 
 init_with_root_or_sudo "$0"
 
-begin_banner "wg" "Cont. Deploy"
+begin_banner "ss" "Cont. Deploy"
 
 ${SCRIPT_ABS_PATH}/../../../../DevOps/linode-sg/test/prepare.sh
 ${SCRIPT_ABS_PATH}/../../../../DevOps/linode-sg/test/deploy/prepare.sh
@@ -22,4 +22,4 @@ ${SCRIPT_ABS_PATH}/finishing.sh
 ${SCRIPT_ABS_PATH}/../../../../DevOps/linode-sg/test/deploy/finishing.sh
 ${SCRIPT_ABS_PATH}/../../../../DevOps/linode-sg/test/finishing.sh
 
-done_banner "wg" "Cont. Deploy"
+done_banner "ss" "Cont. Deploy"

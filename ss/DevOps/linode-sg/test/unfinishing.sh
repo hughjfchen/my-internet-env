@@ -8,6 +8,6 @@ fi
 
 init_with_root_or_sudo "$0"
 
-begin_banner "wg" "unfinishing"
+begin_banner "ss" "unfinishing"
 
-done_banner "wg" "unfinishing"
+done_banner "ss" "unfinishing"

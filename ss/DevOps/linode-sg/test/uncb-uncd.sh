@@ -8,7 +8,7 @@ fi
 
 init_with_root_or_sudo "$0"
 
-begin_banner "wg" "Cont. UnBuild and UnDeploy"
+begin_banner "ss" "Cont. UnBuild and UnDeploy"
 
 # I don't think we need to undo the top-level finishing and prepare
 #${SCRIPT_ABS_PATH}/../../../../DevOps/linode-sg/test/unfinishing.sh
@@ -33,4 +33,4 @@ ${SCRIPT_ABS_PATH}/unprepare.sh
 #${SCRIPT_ABS_PATH}/../../../../DevOps/linode-sg/test/build/unprepare.sh
 #${SCRIPT_ABS_PATH}/../../../../DevOps/linode-sg/test/unprepare.sh
 
-done_banner "wg" "Cont. UnBuild and UnDeploy"
+done_banner "ss" "Cont. UnBuild and UnDeploy"
