@@ -11,7 +11,8 @@ init_with_root_or_sudo "$0"
 begin_banner "wg" "Cont. Build and Deploy"
 
 ${SCRIPT_ABS_PATH}/../../../../DevOps/linode-sg/test/prepare.sh
-${SCRIPT_ABS_PATH}/../../../../DevOps/linode-sg/test/build/prepare.sh
+#${SCRIPT_ABS_PATH}/../../../../DevOps/linode-sg/test/build/prepare.sh
+${SCRIPT_ABS_PATH}/../../../../DevOps/linode-sg/test/deploy/prepare.sh
 
 ${SCRIPT_ABS_PATH}/prepare.sh
 ${SCRIPT_ABS_PATH}/build/prepare.sh
