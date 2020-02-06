@@ -11,7 +11,7 @@ init_with_root_or_sudo "$0"
 begin_banner "ss" "deploy prepare"
 
 if [ ! -L ${SCRIPT_ABS_PATH}/../../../../result ]; then
-    warn "no ss build result found, suppose that the image would be pull from registry"
+    warn "no ss build result found, suppose that the image would be pull from registry or already built  locally"
 else
     sg docker -c "docker load -i ${SCRIPT_ABS_PATH}/../../../../result"
 fi

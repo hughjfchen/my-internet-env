@@ -10,12 +10,7 @@ init_with_root_or_sudo "$0"
 
 begin_banner "ss" "build prepare"
 
-#set +u to workaround the nix script temperlately.
-set +u
-. $HOME/.nix-profile/etc/profile.d/nix.sh
-set -u
-
-# generate nix file for the project
-[[ -e ${SCRIPT_ABS_PATH}/../../../../ss.cabal ]] && cabal2nix . > ${SCRIPT_ABS_PATH}/nix/ss.nix
+#clone the source tree into a src directory and checkout the appropriate branch.
+git clone https://github.com/mritd/dockerfile
 
 done_banner "ss" "build prepare"

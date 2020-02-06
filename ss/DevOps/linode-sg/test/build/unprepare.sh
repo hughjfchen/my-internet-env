@@ -9,5 +9,8 @@ fi
 init_with_root_or_sudo "$0"
 
 begin_banner "ss" "build unprepare"
-
+# clean up the src directory
+begin_banner "ss" "build unprepare - clean up the dockerfile directory"
+rm -fr dockerfile
+done_banner "ss" "build unprepare - clean up the dockerfile directory"
 done_banner "ss" "build unprepare"
