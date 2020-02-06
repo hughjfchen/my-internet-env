@@ -8,6 +8,6 @@ fi
 
 init_with_root_or_sudo "$0"
 
-begin_bnner "wg" "unprepare"
+begin_banner "wg" "unprepare"
 
 done_banner "wg" "unprepare"
