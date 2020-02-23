@@ -10,6 +10,8 @@ init_with_root_or_sudo "$0"
 
 begin_banner "wg" "deploy deploy"
 
-sudo sg docker -c "docker-compose -f /var/wg/docker-compose-wg.yml up -d"
+sg docker -c "docker run -dt --rm --name wg-for-phone --cap-add net_admin --cap-add sys_module -v /var/wg/config/wg0:/etc/wireguard -p 5555:5555/udp wireguard:local"
+
+sg docker -c "docker run -dt --rm --name wg-for-laptop --cap-add net_admin --cap-add sys_module -v /var/wg/config/wg1:/etc/wireguard -p 6666:6666/udp wireguard:local"
 
 done_banner "wg" "deploy deploy"

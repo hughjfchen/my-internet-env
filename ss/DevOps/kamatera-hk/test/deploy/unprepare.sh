@@ -15,24 +15,4 @@ if [ -d /var/ss ]; then
     sudo rm -fr /var/ss
 fi
 
-set +e
-myUser2=$(awk -F":" '{print $1}' /etc/passwd | grep -w ss)
-if [ "X${myUser2}" != "X" ]; then
-    info "ss user defined, delete it..."
-    sudo userdel -fr ss
-fi
-
-myGroup2=$(awk -F":" '{print $1}' /etc/group | grep -w ss)
-if [ "X${myGroup2}" != "X" ]; then
-    info "ss group defined, delete it..."
-    sudo groupdel -f ss
-fi
-set -e
-
-MY_TO_REMOVE_IMAGES=$(sudo sg docker -c "docker images"|grep -w ss|awk '{print $3}')
-for MY_TO_REMOVE_IMAGE in ${MY_TO_REMOVE_IMAGES}
-do
-    sudo sg docker -c "docker image rm -f ${MY_TO_REMOVE_IMAGE}"
-done
-
 done_banner "ss" "deploy unprepare"

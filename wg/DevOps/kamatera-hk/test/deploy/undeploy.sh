@@ -10,6 +10,7 @@ init_with_root_or_sudo "$0"
 
 begin_banner "wg" "deploy undeploy"
 
-sudo sg docker -c "docker-compose -f /var/wg/docker-compose-wg.yml down"
+sg docker -c "docker stop $(docker ps|grep wg-for-phone|awk '{print $1}')"
+sg docker -c "docker stop $(docker ps|grep wg-for-laptop|awk '{print $1}')"
 
 done_banner "wg" "deploy undeploy"

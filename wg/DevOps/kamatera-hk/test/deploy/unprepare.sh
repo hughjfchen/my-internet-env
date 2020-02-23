@@ -15,24 +15,4 @@ if [ -d /var/wg ]; then
     sudo rm -fr /var/wg
 fi
 
-set +e
-myUser2=$(awk -F":" '{print $1}' /etc/passwd | grep -w wg)
-if [ "X${myUser2}" != "X" ]; then
-    info "wg user defined, delete it..."
-    sudo userdel -fr wg
-fi
-
-myGroup2=$(awk -F":" '{print $1}' /etc/group | grep -w wg)
-if [ "X${myGroup2}" != "X" ]; then
-    info "wg group defined, delete it..."
-    sudo groupdel -f wg
-fi
-set -e
-
-MY_TO_REMOVE_IMAGES=$(sudo sg docker -c "docker images"|grep -w wg|awk '{print $3}')
-for MY_TO_REMOVE_IMAGE in ${MY_TO_REMOVE_IMAGES}
-do
-    sudo sg docker -c "docker image rm -f ${MY_TO_REMOVE_IMAGE}"
-done
-
 done_banner "wg" "deploy unprepare"
