@@ -9,5 +9,9 @@ fi
 init_with_root_or_sudo "$0"
 
 begin_banner "wg" "build unprepare"
+# clean up the src directory
+begin_banner "wg" "build unprepare - clean up the src directory"
+rm -fr src
+done_banner "wg" "build unprepare - clean up the src directory"
 
 done_banner "wg" "build unprepare"

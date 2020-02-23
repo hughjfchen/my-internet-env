@@ -10,15 +10,9 @@ init_with_root_or_sudo "$0"
 
 begin_banner "wg" "build build"
 
-#set +u to workaround the nix script temperlately.
-set +u
-. $HOME/.nix-profile/etc/profile.d/nix.sh
-set -u
-
-if [ -f ${SCRIPT_ABS_PATH}/nix/wg.nix ]; then
-    nix-build -A wg-docker ${SCRIPT_ABS_PATH}/nix/default.nix
-else
-    info "No ${SCRIPT_ABS_PATH}/nix/wg.nix found, skip building"
-fi
+# build the docker locally.
+begin_banner "wg" "build build - build local docker image"
+sg docker -c "docker build -t wireguard:local ./src"
+done_banner "wg" "build build - build local docker image"
 
 done_banner "wg" "build build"

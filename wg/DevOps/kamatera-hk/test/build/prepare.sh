@@ -10,13 +10,14 @@ init_with_root_or_sudo "$0"
 
 begin_banner "wg" "build prepare"
 
-#set +u to workaround the nix script temperlately.
-set +u
-. $HOME/.nix-profile/etc/profile.d/nix.sh
-set -u
-
-# generate nix file for the project
-#[[ -e ${SCRIPT_ABS_PATH}/../../../../wg.cabal ]] && cabal2nix . > ${SCRIPT_ABS_PATH}/nix/wg.nix
-cabal2nix ${SCRIPT_ABS_PATH}/../../../.. > ${SCRIPT_ABS_PATH}/nix/wg.nix
+#clone the source tree into a src directory and checkout the appropriate branch.
+begin_banner "wg" "build prepare - clone the source tree into the src directory"
+git clone https://github.com/cmulk/wireguard-docker.git src
+cd src
+git checkout stretch
+# remove linux-header-cloud-amd64 in install-module to fix build DKMS failure
+sed -i.bak.for.install.module 's/linux-headers-cloud-amd64//g' install-module
+cd ..
+done_banner "wg" "build prepare - clone the source tree into the src directoty"
 
 done_banner "wg" "build prepare"

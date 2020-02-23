@@ -60,7 +60,7 @@ let
 
   wg-docker =  pkgs.dockerTools.buildImage {
   name = "wg";
-  tag = wg.version;
+  tag = "5.2.0";
   
   contents = [ static-wg
                wg-env ];

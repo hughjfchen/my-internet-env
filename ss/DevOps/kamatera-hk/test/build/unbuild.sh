@@ -8,11 +8,8 @@ fi
 
 init_with_root_or_sudo "$0"
 
-#set +u to workaround the nix script temperlately.
-set +u
-. $HOME/.nix-profile/etc/profile.d/nix.sh
-set -u
-
 begin_banner "ss" "build unbuild"
-
+begin_banner "ss" "build unbuild - clean up the local docker image"
+sg docker -c "docker rmi -f $(docker images|grep -w shadowsocks|awk '{print $3}')"
+done_banner "ss" "build unbuild - clean up the local docker image"
 done_banner "ss" "build unbuild"

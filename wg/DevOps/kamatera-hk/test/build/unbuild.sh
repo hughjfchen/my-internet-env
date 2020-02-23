@@ -8,11 +8,9 @@ fi
 
 init_with_root_or_sudo "$0"
 
-#set +u to workaround the nix script temperlately.
-set +u
-. $HOME/.nix-profile/etc/profile.d/nix.sh
-set -u
-
 begin_banner "wg" "build unbuild"
 
+begin_banner "wg" "build unbuild - clean up the local docker image"
+sg docker -c "docker rmi -f $(docker images|grep -w wireguard|awk '{print $3}')"
+done_banner "wg" "build unbuild - clean up the local docker image"
 done_banner "wg" "build unbuild"

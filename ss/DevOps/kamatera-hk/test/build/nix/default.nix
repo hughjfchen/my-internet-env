@@ -60,7 +60,7 @@ let
 
   ss-docker =  pkgs.dockerTools.buildImage {
   name = "ss";
-  tag = ss.version;
+  tag = "5.2.0";
   
   contents = [ static-ss
                ss-env ];
