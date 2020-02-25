@@ -14,9 +14,18 @@ begin_banner "wg" "build prepare"
 begin_banner "wg" "build prepare - clone the source tree into the src directory"
 git clone https://github.com/cmulk/wireguard-docker.git src
 cd src
-git checkout stretch
-# remove linux-header-cloud-amd64 in install-module to fix build DKMS failure
-sed -i.bak.for.install.module 's/linux-headers-cloud-amd64//g' install-module
+
+case ${THE_DISTRIBUTION_VERSION} in
+    9)  git checkout stretch
+        # remove linux-header-cloud-amd64 in install-module to fix build DKMS failure
+        sed -i.bak.for.install.module 's/linux-headers-cloud-amd64//g' install-module
+        ;;
+    10)  git checkout buster
+         ;;
+    *)  my_exit "Not supported OS distribution. Abort." 1
+        ;;
+esac
+
 cd ..
 done_banner "wg" "build prepare - clone the source tree into the src directoty"
 
